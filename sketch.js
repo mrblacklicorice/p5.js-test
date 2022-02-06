@@ -1,14 +1,9 @@
+let xPos = 200;
+let yPos = 200;
+
 function setup() {
   createCanvas(400, 400);
-  
-  stroke(100,200,300);
-  //changes outline color
-  fill(300,200,100);
-  //changes fill color
-  strokeWeight(10);
-  //makes border THICCC
-  
-  
+    
   rectMode(CENTER);
   //centers at coord.
 }
@@ -17,8 +12,25 @@ function draw() {
   background(220);
   //changes bg to monocrom color (can be hex)
   
-  rect(200,200,200,200);
+  rect(xPos,yPos,200,200);
   //creates rectangle @ 50,50 coord.
+  
+  if (keyIsDown(UP_ARROW)) {
+    yPos -= 10;
+  }
+  
+  if (keyIsDown(DOWN_ARROW)) {
+    yPos += 10;
+  }
+  
+  if (keyIsDown(RIGHT_ARROW)) {
+    xPos += 10;
+  }
+  
+  if (keyIsDown(LEFT_ARROW)) {
+    xPos -= 10;
+  }
   
   
 }
+
