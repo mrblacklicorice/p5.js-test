@@ -1,26 +1,20 @@
-let xPos = 200;
-let yPos = 200;
-
 let angle = 0.5;
 
 function setup() {
   createCanvas(400, 400, WEBGL);
-    
-  rectMode(CENTER);
-  //centers at coord.
+  //canvas size setup
 }
 
 function draw() {
   background(220);
-  //changes bg to monocrom color (can be hex)
+  //sets background color
   
-  if (keyIsDown(16)) {
-    rotate(angle);
-  }
-//rotates the box when shift is clicked
+  rectMode(CENTER);
+  //centers shape at the coordinate
+  //rect(0,0,200,200);  <- rect = 2d or 3d plane
   
-  //rotates box
- if (keyIsDown(LEFT_ARROW)) {
+  
+  if (keyIsDown(LEFT_ARROW)) {
     rotateY(-angle);
   }
 
@@ -39,5 +33,7 @@ function draw() {
   box();
   
   
+  //sphere(70);
   
+  //am a bit special so idk how to center spheres
 }
