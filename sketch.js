@@ -23,28 +23,28 @@ function draw() {
 
   box();
 }
-  
+ 
+x_angle = 0;
+y_angle = 0;
   
 function keyPressed() {
-    
-    x_angle = 0;
-    y_angle = 0;
 
     if(keyCode == LEFT_ARROW) {
-      y_angle = 0.7;
+      y_angle += 0.1;
       rotateY(y_angle);
     } 
     if(keyCode == RIGHT_ARROW) {
-      y_angle = -0.7;
+      y_angle += -0.1;
       rotateY(y_angle);
     }
     if(keyCode == UP_ARROW) {
-      x_angle = 0.7;
+      x_angle += 0.1;
       rotateX(x_angle);
     }
     if(keyCode == DOWN_ARROW) {
-      x_angle = -0.7;
+      x_angle += -0.1;
       rotateX(x_angle);
     }
   }
  
+  
