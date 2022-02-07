@@ -2,6 +2,12 @@ function setup() {
   createCanvas(600, 600, WEBGL);
 }
 
+let sphereAngle = {
+  xAngle: 0,
+  yAngle: 0,
+}
+//keep state separate from drawing function
+
 function draw() {
   noFill();
   strokeWeight(1);
@@ -15,18 +21,21 @@ function draw() {
   
   push(); 
    if (keyIsDown(UP_ARROW)) {
-    rotateX(frameCount/100);
+    sphereAngle.xAngle += 0.1;
   }
    if (keyIsDown(DOWN_ARROW)) {
-    rotateX(-frameCount/100);
+    sphereAngle.xAngle += -0.1;
   }
    if (keyIsDown(RIGHT_ARROW)) {
-    rotateY(frameCount/100);
+    sphereAngle.yAngle += 0.1;
   }
    if (keyIsDown(LEFT_ARROW)) {
-    rotateY(-frameCount/100);
+    sphereAngle.yAngle += -0.1;
   }
  
+  rotateX(sphereAngle.xAngle)
+  rotateY(sphereAngle.yAngle)
+  
   sphere(200,24,16);
   //normalMaterial();
   pop();
