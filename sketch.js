@@ -1,5 +1,9 @@
 let angle = 0.5;
 
+y_angle = 0;
+x_angle = 0;
+
+
 function setup() {
   createCanvas(400, 400, WEBGL);
   //canvas size setup
@@ -13,27 +17,34 @@ function draw() {
   //centers shape at the coordinate
   //rect(0,0,200,200);  <- rect = 2d or 3d plane
   
-  
-  if (keyIsDown(LEFT_ARROW)) {
-    rotateY(-angle);
-  }
+  rotateY(y_angle);
+  rotateX(x_angle);
 
-  if (keyIsDown(RIGHT_ARROW)) {
-    rotateY(angle);
-  }
-
-  if (keyIsDown(UP_ARROW)) {
-    rotateX(angle);
-  }
-
-  if (keyIsDown(DOWN_ARROW)) {
-    rotateX(-angle);
-  }
 
   box();
-  
-  
-  //sphere(70);
-  
-  //am a bit special so idk how to center spheres
 }
+  
+  
+function keyPressed() {
+    
+    x_angle = 0;
+    y_angle = 0;
+
+    if(keyCode == LEFT_ARROW) {
+      y_angle = 0.7;
+      rotateY(y_angle);
+    } 
+    if(keyCode == RIGHT_ARROW) {
+      y_angle = -0.7;
+      rotateY(y_angle);
+    }
+    if(keyCode == UP_ARROW) {
+      x_angle = 0.7;
+      rotateX(x_angle);
+    }
+    if(keyCode == DOWN_ARROW) {
+      x_angle = -0.7;
+      rotateX(x_angle);
+    }
+  }
+ 
