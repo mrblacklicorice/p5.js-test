@@ -21,16 +21,16 @@ function draw() {
   
   push(); 
    if (keyIsDown(UP_ARROW)) {
-    sphereAngle.xAngle += 0.1;
+    sphereAngle.xAngle += 0.01;
   }
    if (keyIsDown(DOWN_ARROW)) {
-    sphereAngle.xAngle += -0.1;
+    sphereAngle.xAngle += -0.01;
   }
    if (keyIsDown(RIGHT_ARROW)) {
-    sphereAngle.yAngle += 0.1;
+    sphereAngle.yAngle += 0.01;
   }
    if (keyIsDown(LEFT_ARROW)) {
-    sphereAngle.yAngle += -0.1;
+    sphereAngle.yAngle += -0.01;
   }
  
   rotateX(sphereAngle.xAngle)
