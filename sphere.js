@@ -19,7 +19,9 @@ function draw() {
   //ambientMaterial(250);
   //noStroke();
   
-  push(); 
+  push();
+  translate(10, height * 0.35, -200);
+  
    if (keyIsDown(UP_ARROW)) {
     sphereAngle.xAngle += 0.01;
   }
@@ -36,7 +38,7 @@ function draw() {
   rotateX(sphereAngle.xAngle)
   rotateY(sphereAngle.yAngle)
   
-  sphere(200,24,16);
+  sphere(100,24,16);
   //normalMaterial();
   pop();
   
