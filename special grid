@@ -5,12 +5,12 @@ function setup() {
 function draw() {
   background(220);
   
-  let pixel=25;
-  var offset = 5;
-  for (let x = offset; x < (7 * pixel)+offset; x+=pixel){
+  let pixel= 60;
+  var offset = 45;
+  for (let x = offset; x < (4 * pixel)+offset; x+=pixel){
     rect(x+offset,0,pixel,pixel);
     
-    for (let y = offset; y < (7 * pixel)+offset; y+=pixel){
+    for (let y = offset; y < (4 * pixel)+offset; y+=pixel){
       rect(x+offset,y+offset,pixel,pixel);
     }
   }
