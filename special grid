@@ -5,15 +5,16 @@ function setup() {
 function draw() {
   background(220);
   
+  //created 4x4 grid
   let pixel= 60;
   var offset = 40;
   for (let x = offset; x < (4 * pixel)+offset; x+=pixel){
-    rect(x+offset,x+offset,pixel,pixel);
-    
     for (let y = offset; y < (4 * pixel)+offset; y+=pixel){
       rect(x+offset,y+offset,pixel,pixel);
     }
   }
+  
+  
   
  
 }
