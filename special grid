@@ -1,3 +1,7 @@
+var drawCircle = false;
+
+var circles = [];
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -14,7 +18,15 @@ function draw() {
     }
   }
   
-  
+  //circle(x, y, diameter)
+
+  if(drawCircle){
+      circle(10,10,60);
+  }
   
  
+}
+
+function mouseClicked() {
+  cicles.push({})
 }
