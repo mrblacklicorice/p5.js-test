@@ -18,6 +18,7 @@ function draw() {
     }
   }
   
+//4*pixel + (2 * offset);   
   //(80,80) (320,320)
   //circle(x, y, diameter)
 for (let i = 0; i < circles.length; i++) {
