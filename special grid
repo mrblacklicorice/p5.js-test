@@ -1,12 +1,12 @@
-var drawCircle = false;
-
 var circles = [];
+var borders = [];
 
 function setup() {
   createCanvas(400, 400);
 }
 
 function draw() {
+  clear();
   background(220);
   
   //created 4x4 grid
@@ -18,15 +18,16 @@ function draw() {
     }
   }
   
+  //(80,80) (320,320)
   //circle(x, y, diameter)
-
-  if(drawCircle){
-      circle(10,10,60);
-  }
+for (let i = 0; i < circles.length; i++) {
+  circle(circles[i].x, circles[i].y, 60);
+  circles[i].y++;
+}
   
  
 }
 
 function mouseClicked() {
-  cicles.push({})
+  circles.push({x:mouseX,y:mouseY});
 }
