@@ -1,8 +1,13 @@
 var circles = [];
 var borders = [];
 
+let pixel = 60;
+
+var row = 6;
+var col = 7;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(10*pixel, 10*pixel);
 }
 
 function draw() {
@@ -10,11 +15,9 @@ function draw() {
   background(220);
   
   //created 4x4 grid
-  let pixel= 60;
-  var offset = 40;
-  for (let x = offset; x < (4 * pixel)+offset; x+=pixel){
-    for (let y = offset; y < (4 * pixel)+offset; y+=pixel){
-      rect(x+offset,y+offset,pixel,pixel);
+  for (let x = 0; x < (col * pixel); x+=pixel){
+    for (let y = 0; y < (row * pixel); y+=pixel){
+      rect(x+((width-(col*pixel))/2),y+((height-(row*pixel))/2),pixel,pixel);
     }
   }
   
