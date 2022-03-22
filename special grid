@@ -17,7 +17,7 @@ function setup() {
   
   x_mar = ((width-(col*pixel))/2);
   y_mar = ((height-(row*pixel))/2);
-  borders.fill(row * pixel);
+  borders.fill(row * pixel+y_mar-(pixel/2));
 }
 
 function draw() {
