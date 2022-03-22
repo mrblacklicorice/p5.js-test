@@ -1,13 +1,23 @@
 var circles = [];
-var borders = [];
 
-let pixel = 60;
+let pixel = 70;
 
 var row = 6;
 var col = 7;
+var borders = new Array(col);
+
+
+var x_mar;
+var y_mar;
+
+var curry;
 
 function setup() {
   createCanvas(10*pixel, 10*pixel);
+  
+  x_mar = ((width-(col*pixel))/2);
+  y_mar = ((height-(row*pixel))/2);
+  borders.fill(row * pixel);
 }
 
 function draw() {
@@ -17,21 +27,25 @@ function draw() {
   //created 4x4 grid
   for (let x = 0; x < (col * pixel); x+=pixel){
     for (let y = 0; y < (row * pixel); y+=pixel){
-      rect(x+((width-(col*pixel))/2),y+((height-(row*pixel))/2),pixel,pixel);
+      rect(x+x_mar,y+y_mar,pixel,pixel);
     }
   }
+ 
   
-//4*pixel + (2 * offset);   
-  //(80,80) (320,320)
-  //circle(x, y, diameter)
 for (let i = 0; i < circles.length; i++) {
-  circle(circles[i].x, circles[i].y, 60);
-  circles[i].y++;
+  circle(circles[i].x, circles[i].y, pixel);
 }
+
+  if(circles.length > 0 && circles[circles.length-1].y < borders[curry]){
+    circles[circles.length-1].y++;    
+  }
   
  
 }
 
 function mouseClicked() {
-  circles.push({x:mouseX,y:mouseY});
+  if(x_mar < mouseX && mouseX < x_mar+(col*pixel)) {
+    circles.push({x:(Math.floor(((mouseX-x_mar)/pixel))*pixel)+(pixel/2)+x_mar,y:y_mar-pixel});
+    curry = Math.floor(((mouseX-x_mar)/pixel));
+  }
 }
