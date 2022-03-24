@@ -14,6 +14,10 @@ var curry;
 
 var p1 = true;
 
+var board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
+
+console.table(board);
+
 function setup() {
   createCanvas(10*pixel, 10*pixel);
   
@@ -54,5 +58,7 @@ function mouseClicked() {
     circles.push({x:(Math.floor(((mouseX-x_mar)/pixel))*pixel)+(pixel/2)+x_mar,y:y_mar-pixel,c:(p1 ? "blue" : "red")});
     p1 = !p1;
     curry = Math.floor(((mouseX-x_mar)/pixel));
+    board[(borders[curry]-y_mar-(pixel/2))/pixel][curry] = p1 ? "x" : "o";
+    console.table(board);
   }
 }
