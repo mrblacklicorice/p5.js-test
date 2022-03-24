@@ -19,8 +19,6 @@ var p1 = true;
 
 var board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
 
-var gameover = false;
-
 
 function setup() {
   createCanvas(10*pixel, 10*pixel);
@@ -59,23 +57,30 @@ function draw() {
     circles[circles.length-1].y += pixel / 10;    
   }
   
-  if(!gameover && check_win("o")){  
-    gameover = true;
+  if( check_win("o")){  
     p1_scr++;
-    
     console.log("player 1 wins");
+    board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
+    circles = [];
+    borders.fill(row * pixel+y_mar-(pixel/2));
+    curry = undefined;
+    p1 = true;
   }
   
-  if(!gameover && check_win("x")){
-    gameover = true;
+  if( check_win("x")){
     p2_scr++;
     console.log("player 2 wins");
+    board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
+    circles = [];
+    borders.fill(row * pixel+y_mar-(pixel/2));
+    curry = undefined;
+    p1 = true;
   }
      
 }
 
 function mouseClicked() {
-  if(x_mar < mouseX && mouseX < x_mar+(col*pixel) && (curry == undefined || borders[curry] == circles[circles.length-1].y) && borders[Math.floor(((mouseX-x_mar)/pixel))] > y_mar+pixel && !gameover) {
+  if(x_mar < mouseX && mouseX < x_mar+(col*pixel) && (curry == undefined || borders[curry] == circles[circles.length-1].y) && borders[Math.floor(((mouseX-x_mar)/pixel))] > y_mar+pixel) {
     if(curry != undefined) borders[curry] -= pixel;
     circles.push({x:(Math.floor(((mouseX-x_mar)/pixel))*pixel)+(pixel/2)+x_mar,y:y_mar-pixel,c:(p1 ? "blue" : "red")});
     p1 = !p1;
@@ -113,4 +118,3 @@ function check_win(p) {
 function isInBorder(r, c) {
 	return (r > -1 && r < row && c > -1 && c < col);
 }
-
