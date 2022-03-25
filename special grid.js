@@ -57,7 +57,7 @@ function draw() {
     circles[circles.length-1].y += pixel / 10;    
   }
   
-  if( check_win("o")){  
+  if(circles.length > 0 && circles[circles.length-1].y == borders[curry] && check_win("o")){  
     p1_scr++;
     console.log("player 1 wins");
     board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
@@ -67,7 +67,7 @@ function draw() {
     p1 = true;
   }
   
-  if( check_win("x")){
+  if(circles.length > 0 && circles[circles.length-1].y == borders[curry] && check_win("x")){
     p2_scr++;
     console.log("player 2 wins");
     board = ((new Array(row)).fill(0)).map(ele => (new Array(col)).fill("-"));
@@ -86,7 +86,7 @@ function mouseClicked() {
     p1 = !p1;
     curry = Math.floor(((mouseX-x_mar)/pixel));
     board[(borders[curry]-y_mar-(pixel/2))/pixel][curry] = p1 ? "x" : "o";
-    console.table(board);
+    // console.table(board);
   }
 }
 
